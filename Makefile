@@ -23,4 +23,4 @@ rstudio:
 export_env:
 	source $(CONDA_BASE)/etc/profile.d/conda.sh && \
 	conda activate r-tables && \
-	conda env export > environment.yml
+	conda env export --no-builds | grep -v ^prefix > environment.yml
