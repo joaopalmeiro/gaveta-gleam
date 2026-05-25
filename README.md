@@ -10,6 +10,18 @@ Install [mise](https://mise.jdx.dev/getting-started.html), [1Password](https://1
 mise install && gleam --version
 ```
 
+```bash
+gleam format
+```
+
+```bash
+gleam check
+```
+
+```bash
+gleam test
+```
+
 ## Deployment
 
 Bump the `version` in the [gleam.toml](gleam.toml) file.

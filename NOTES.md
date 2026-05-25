@@ -2,6 +2,9 @@
 
 - https://gleam.run/command-line-reference/
 - https://github.com/lpil/envoy
+- https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Link#pagination_through_links
+- https://github.com/lpil/gleeunit
+  - https://hexdocs.pm/gleeunit/index.html
 
 ## Commands
 
