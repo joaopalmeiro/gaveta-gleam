@@ -38,3 +38,15 @@ Commit and push changes.
 ```bash
 HEXPM_API_KEY="op://Development/gaveta-gleam/HEXPM_API_KEY" op run -- gleam publish
 ```
+
+```bash
+git tag
+```
+
+```bash
+git tag "v$(grep '^version' gleam.toml | cut -d '"' -f2)"
+```
+
+```bash
+git push origin "v$(grep '^version' gleam.toml | cut -d '"' -f2)"
+```
