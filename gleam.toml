@@ -1,5 +1,5 @@
 name = "gaveta"
-version = "0.0.0"
+version = "0.1.0"
 licences = ["MIT"]
 description = "Vanilla utility functions for different projects."
 gleam = ">= 1.16.0"

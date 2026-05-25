@@ -12,6 +12,14 @@
 gleam new tmp
 ```
 
+```bash
+gleam docs publish --help
+```
+
+```bash
+gleam publish --help
+```
+
 ## Snippets
 
 ### `README.md`
