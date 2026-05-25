@@ -1,3 +1,98 @@
+# Notes
+
+- https://gleam.run/command-line-reference/
+
+## Commands
+
+```bash
+gleam new tmp
+```
+
+## Snippets
+
+### `README.md`
+
+```markdown
+# r-tables
+
+Some examples of tables created in R.
+
+## Quickstart
+
+If necessary, install [Anaconda](https://docs.anaconda.com/anaconda/install/) or [Miniconda](https://docs.conda.io/en/latest/miniconda.html) first, please.
+
+- `make init`.
+- `make rstudio`.
+
+## Notes
+
+- Conda environment:
+  - `conda create --no-default-packages -n r-tables -c r r-base=3.6.3`.
+  - `conda activate r-tables`.
+  - `conda install -c r rstudio`.
+  - `conda install -c r r-reactable`.
+  - `conda env export > environment.yml`.
+  - `conda remove -n r-tables --all`.
+```
+
+### `Makefile`
+
+```makefile
+.PHONY: init manual_init remove rstudio export_env
+
+CONDA_BASE=$(shell conda info --base)
+
+init:
+	conda env create -f environment.yml
+
+manual_init:
+	conda create -y --no-default-packages -n r-tables -c r r-base=3.6.3
+	source $(CONDA_BASE)/etc/profile.d/conda.sh && \
+	conda activate r-tables && \
+	conda install -y -c r rstudio && \
+	conda install -y -c r r-reactable
+
+remove:
+	conda remove -n r-tables --all
+
+rstudio:
+	source $(CONDA_BASE)/etc/profile.d/conda.sh && \
+	conda activate r-tables && \
+	rstudio
+
+export_env:
+	source $(CONDA_BASE)/etc/profile.d/conda.sh && \
+	conda activate r-tables && \
+	conda env export --no-builds | grep -v ^prefix > environment.yml
+```
+
+### `.editorconfig`
+
+```ini
+# More info: https://editorconfig.org/
+# List of properties: https://github.com/editorconfig/editorconfig/wiki/EditorConfig-Properties
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[*.md]
+indent_style = space
+indent_size = 2
+
+[LICENSE]
+insert_final_newline = false
+
+[Makefile]
+indent_style = tab
+```
+
+### `environment.yml`
+
+```yml
 name: r-tables
 channels:
   - r
@@ -173,3 +268,4 @@ dependencies:
   - xz=5.2.5
   - zlib=1.2.11
   - zstd=1.4.8
+```
